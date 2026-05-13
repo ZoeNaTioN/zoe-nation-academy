@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Contact</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f0;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 15px;
+        }
+
+        nav {
+            background-color: #1b5e20;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 15px;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: #f9a825;
+            color: #1b5e20;
+        }
+
+        nav a.active {
+            background-color: #f9a825;
+            color: #1b5e20;
+        }
+
+        /* University bar */
+        .uni-bar {
+            background-color: white;
+            border-bottom: 4px solid #f9a825;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .uni-bar img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .uni-bar h3 {
+            margin: 0;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+
+        .uni-bar p {
+            margin: 3px 0 0;
+            color: gray;
+            font-size: 13px;
+        }
+
+        /* Page heading */
+        .page-heading {
+            background-color: #2e7d32;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .page-heading h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .page-heading p {
+            color: #c8e6c9;
+            margin: 8px 0 0;
+        }
+
+        /* Main contact area - two columns */
+        .contact-area {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        /* LEFT: contact details box */
+        .details-box {
+            background-color: white;
+            border: 2px solid #c8e6c9;
+            border-radius: 12px;
+            padding: 24px;
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .details-box h3 {
+            color: #2e7d32;
+            margin: 0 0 18px;
+            font-size: 18px;
+        }
+
+        /* One detail row */
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .detail-row .icon-box {
+            width: 40px;
+            height: 40px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .detail-row h4 {
+            margin: 0 0 2px;
+            font-size: 12px;
+            color: gray;
+            text-transform: uppercase;
+        }
+
+        .detail-row p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Available notice */
+        .available {
+            background-color: #e8f5e9;
+            border: 2px solid #a5d6a7;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .green-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #4caf50;
+            flex-shrink: 0;
+        }
+
+        /* RIGHT: Contact form box */
+        .form-box {
+            flex: 1;
+            min-width: 280px;
+            background-color: rgba(66, 6, 6, 0.884);
+            border: 2px solid #103411;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .form-box h3 {
+            color: #2e7d32;
+            margin: 0 0 18px;
+            font-size: 18px;
+        }
+
+        /* Two fields side by side (first name / last name) */
+        .two-col {
+            display: flex;
+            gap: 14px;
+        }
+
+        .two-col .field {
+            flex: 1;
+        }
+
+        /* One form field wrapper */
+        .field {
+            margin-bottom: 15px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #190f0f;
+        }
+
+        /* All text inputs, dropdowns, and text areas */
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            border: 2px solid #d3ccd4;
+            border-radius: 8px;
+            background-color: #d5dfc5;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Highlight the field the user clicked on */
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: #0f3010;
+            background-color: white;
+        }
+
+        .field textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        /* Send button */
+        .send-btn {
+            width: 100%;
+            padding: 13px;
+            background-color: #bdc9bd;
+            color: rgb(22, 3, 59);
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .send-btn:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Success message - hidden until form is sent */
+        .success-msg {
+            display: none;
+            background-color: #e8f5e9;
+            border: 2px solid #2e502f;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 14px;
+        }
+
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #f9a825;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .contact-area { flex-direction: column; }
+            .details-box  { width: 100%; }
+            .two-col      { flex-direction: column; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Nathan Chintu</h1>
+        <p>Cyber Engineer</p>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <!-- UNIVERSITY LOGO -->
+    <div class="uni-bar">
+        <img src="kmu_logo.jfif" alt="Kapasa Makasa University Logo">
+        <div>
+            <h3>Kapasa Makasa University</h3>
+            <p>Faculty of cys &nbsp;|&nbsp; Student ID: 2026/cys/001 &nbsp;|&nbsp; Bachelor of Information Technology</p>
+        </div>
+    </div>
+
+    <!-- PAGE HEADING -->
+    <div class="page-heading">
+        <h2>Contact Me</h2>
+        <p>Fill in the form below and I will reply as soon as I can!</p>
+    </div>
+
+    <!-- CONTACT CONTENT -->
+    <div class="contact-area">
+
+        <!-- LEFT: My Details -->
+        <div class="details-box">
+            <h3>📬 My Details</h3>
+
+            <div class="detail-row">
+                <div class="icon-box">📍</div>
+                <div>
+                    <h4>Location</h4>
+                    <p>Central province, Zambia</p>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="icon-box">📞</div>
+                <div>
+                    <h4>Phone / WhatsApp</h4>
+                    <p>+260 979999990</p>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="icon-box">✉️</div>
+                <div>
+                    <h4>Email</h4>
+                    <p>zoe@email.com</p>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="icon-box">🎓</div>
+                <div>
+                    <h4>University Email</h4>
+                    <p>zoe@kmu.ac.zm</p>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="icon-box">🕐</div>
+                <div>
+                    <h4>Best Time</h4>
+                    <p>Weekdays after 4:30pm<br>Weekends anytime</p>
+                </div>
+            </div>
+
+            <div class="available">
+                <div class="green-dot"></div>
+                Open to internships &amp; projects
+            </div>
+        </div>
+
+        <!-- RIGHT: Contact Form -->
+        <div class="form-box">
+            <h3>💌 Send Me a Message</h3>
+
+            <!-- First name and last name next to each other -->
+            <div class="two-col">
+                <div class="field">
+                    <label>First Name *</label>
+                    <input type="text" id="fname" placeholder="zoe">
+                </div>
+                <div class="field">
+                    <label>Last Name *</label>
+                    <input type="text" id="lname" placeholder="chintu">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Email Address *</label>
+                <input type="email" id="email" placeholder="nathan@gmail.com">
+            </div>
+
+            <div class="field">
+                <label>Phone / WhatsApp</label>
+                <input type="tel" id="phone" placeholder="+260 97 000 0000">
+            </div>
+
+            <div class="field">
+                <label>Reason for Contacting</label>
+                <select id="reason">
+                    <option value="">-- Choose a reason --</option>
+                    <option>Internship Opportunity</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Your Message *</label>
+                <textarea id="message" placeholder="Write your message here..."></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button class="send-btn" onclick="sendMessage()">📨 Send Message</button>
+
+            <!-- This box appears after the form is sent -->
+            <div class="success-msg" id="success-msg">
+                ✅ Message sent! I will get back to youwithin 24 hours. Thank you!
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; Nathan Chintu &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="about.html">About Me</a></p>
+    </footer>
+
+    <script>
+        function sendMessage() {
+
+            // Get what was typed
+            var name    = document.getElementById('fname').value;
+            var email   = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // Check if fields are empty
+            if (name == '' || email == '' || message == '') {
+                alert('Please fill in your name, email and message!');
+                return;
+            }
+
+            // Show success message
+            document.getElementById('success-msg').style.display = 'block';
+
+            // Change the button
+            var btn = document.querySelector('.send-btn');
+            btn.textContent = '✅ Sent!';
+            btn.style.backgroundColor = '#4caf50';
+            btn.disabled = true;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - About Me</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f0;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: rgb(62, 80, 6);
+            text-align: center;
+            padding: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 15px;
+        }
+
+        nav {
+            background-color: #1b5e20;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: rgb(185, 212, 12);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 15px;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: #f9a825;
+            color: #1b5e20;
+        }
+
+        nav a.active {
+            background-color: #f9a825;
+            color: #1b5e20;
+        }
+
+        /* University logo bar */
+        .uni-bar {
+            background-color: white;
+            border-bottom: 4px solid #f9a825;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .uni-bar img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .uni-bar h3 {
+            margin: 0;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+
+        .uni-bar p {
+            margin: 3px 0 0;
+            color: gray;
+            font-size: 13px;
+        }
+
+        /* Page heading strip */
+        .page-heading {
+            background-color: #2e7d32;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .page-heading h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .page-heading p {
+            color: #c8e6c9;
+            margin: 8px 0 0;
+        }
+
+        /* Main content area */
+        .content {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Two columns: photo on left, text on right */
+        .about-row {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        /* Photo + details card */
+        .profile-card {
+            background-color: white;
+            border: 2px solid #c8e6c9;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            width: 220px;
+            flex-shrink: 0;
+        }
+
+        .profile-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #f9a825;
+        }
+
+        .profile-card h3 {
+            color: #2e7d32;
+            margin: 12px 0 4px;
+            font-size: 16px;
+        }
+
+        .profile-card p {
+            color: gray;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* Detail list inside profile card */
+        .detail-list {
+            text-align: left;
+            margin-top: 14px;
+            font-size: 14px;
+        }
+
+        .detail-list p {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        /* Right side text */
+        .bio-text {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .bio-text h2 {
+            color: #2e7d32;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .bio-text p {
+            color: #444;
+            font-size: 15px;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        /* Section divider */
+        hr {
+            border: none;
+            border-top: 2px solid #c8e6c9;
+            margin: 25px 0;
+        }
+
+        /* Education boxes */
+        .edu-box {
+            background-color: white;
+            border-left: 5px solid #2e7d32;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+
+        .edu-box .year {
+            color: #f9a825;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .edu-box h4 {
+            margin: 4px 0 2px;
+            color: #1b5e20;
+            font-size: 15px;
+        }
+
+        .edu-box p {
+            margin: 0;
+            color: gray;
+            font-size: 13px;
+        }
+
+        /* Hobby tags */
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .hobby-tag {
+            background-color: #e8f5e9;
+            border: 2px solid #a5d6a7;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 11px 24px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px 6px 0 0;
+        }
+
+        .btn-green {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        .btn-green:hover {
+            background-color: #1b5e20;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #2e7d32;
+            border: 2px solid #2e7d32;
+        }
+
+        .btn-outline:hover {
+            background-color: #e8f5e9;
+        }
+
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #d78c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .about-row { flex-direction: column; }
+            .profile-card { width: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Nathan Chintu</h1>
+        <p>cyber security student</p>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Me</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- UNIVERSITY LOGO -->
+    <div class="uni-bar">
+        <img src="kmu_logo.jfif" alt="Kapasa Makasa University Logo">
+        <div>
+            <h3>Kapasa Makasa University</h3>
+            <p>Faculty of Cyber Security &nbsp;|&nbsp; Student ID: 2024/CYS/001 &nbsp;|&nbsp; Bachelor of Cyber Security</p>
+        </div>
+    </div>
+
+    <!-- PAGE HEADING -->
+    <div class="page-heading">
+        <h2>About Me</h2>
+        <p>My background, education, and interests</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <div class="about-row">
+
+            <!-- LEFT: Profile Card -->
+            <div class="profile-card">
+                <img src="zoe_academy.avif" alt="My Photo">
+
+                <h3>Your Full Name</h3>
+                <p>IT Student</p>
+
+                <div class="detail-list">
+                    <p>📍 serenje, Zambia</p>
+                    <p>🎓 Year 4</p>
+                    <p>📧 nathan.zoe@zmail.com</p>
+                    <p>📞 +260 970000000</p>
+                </div>
+
+                <br>
+                <a href="contact.html" class="btn btn-green">Contact Me</a>
+            </div>
+
+            <!-- RIGHT: Bio text -->
+            <div class="bio-text">
+
+                <h2>Who Am I?</h2>
+                <p>
+                    Hello! My name is <strong>Nathan Chintu Zoe</strong>. I am a 4th-year
+                    student at <strong>Kapasa Makasa University</strong> studying
+                    Bachelor of Cyber Security. I come from <strong>serenje, central Province</strong>.
+                </p>
+                <p>
+                    I love learning how computers and websites work. My dream is to
+                    become a software developer and build apps that help people
+                    in Zambia.
+                </p>
+                <p>
+                    When I am not studying, I enjoy reading tech blogs, playing
+                    football, and helping my fellow students.
+                </p>
+
+                <hr>
+
+                <!-- EDUCATION -->
+                <h2>My Education</h2>
+
+                <div class="edu-box">
+                    <p class="year">2026 – Now</p>
+                    <h4>Bachelor of Cyber Security</h4>
+                    <p>Kapasa Makasa University · chinsali, Zambia</p>
+                </div>
+
+                <div class="edu-box">
+                    <p class="year">2018 – 2020</p>
+                    <h4>Grade 12 Certificate</h4>
+                    <p>Your Secondary School · maamba</p>
+                </div>
+
+                <hr>
+
+                <br>
+                <a href="index.html" class="btn btn-outline">← Home</a>
+                <a href="contact.html" class="btn btn-green">Contact Me →</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; Nathan Chintu &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+    </footer>
+
+</body>
+</html>
